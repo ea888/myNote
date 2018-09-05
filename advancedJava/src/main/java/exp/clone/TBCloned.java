@@ -1,4 +1,4 @@
-package com.chandler.exp.clone;
+package exp.clone;
 
 import java.util.ArrayList;
 import java.util.List;
