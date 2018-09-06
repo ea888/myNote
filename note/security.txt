@@ -1,0 +1,4 @@
+How to store Jwt on client-side, what's the risk:
+1. Save Jwt in Cookies with Httponly. Then no XSS risk since Httponly is not modifiable from Javascript. Still have CSRF risk.
+2. Save CSRF token in cookie too and retrieve it in Javascript then sent along with requests? (not 100% sure yet, TBC...)
+

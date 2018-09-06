@@ -16,8 +16,8 @@ public class RacingCondition implements Runnable {
     }
 
     private void debit(){
-        synchronized(lock){
+//        synchronized(lock){
             this.balance++;
-        }
+//        }
     }
 }

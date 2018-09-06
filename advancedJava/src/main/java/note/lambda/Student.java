@@ -1,4 +1,4 @@
-package exp;
+package note.lambda;
 
 public class Student {
 	String firstName;

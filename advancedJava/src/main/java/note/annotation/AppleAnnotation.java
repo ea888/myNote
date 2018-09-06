@@ -1,4 +1,4 @@
-package exp;
+package note.annotation;
 
 import java.lang.annotation.*;
 import java.lang.reflect.Field;
@@ -36,7 +36,7 @@ public class AppleAnnotation {
     
     public static void main(String args[]) throws ClassNotFoundException, NoSuchMethodException, SecurityException, NoSuchFieldException{
     	Class <?> c = null ;  
-        c = Class.forName("exp.AppleAnnotation") ;
+        c = Class.forName("note.annotation.AppleAnnotation") ;
         Method toM = c.getMethod("displayName") ;  // find method by name: displayName()
         if(toM.isAnnotationPresent(FruitName.class)){  //check if annotation is present
         	FruitName fn = toM.getAnnotation(FruitName.class) ; // get Annotation              

@@ -1,4 +1,4 @@
-package exp;
+package note.multithreading;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class CallableTest {
 		// TODO Auto-generated method stub
 
 		ExecutorService exec = Executors.newCachedThreadPool();
-		List<Future<String>> results = new ArrayList<Future<String>>();
+		List<Future<String>> results = new ArrayList<>();
 		
 		//lambda callable
 		String a = "abc";

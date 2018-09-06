@@ -1,4 +1,4 @@
-package exp;
+package note.lambda;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

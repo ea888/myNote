@@ -1,4 +1,6 @@
-package exp;
+package note.multithreading;
+
+import note.lambda.Student;
 
 import java.util.Random;
 
