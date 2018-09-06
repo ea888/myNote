@@ -7,9 +7,14 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * thread a prints 1,2,3 then thread b prints 4,5,6 then Thread a prints 7,8,9
  * again.
- * 
+ *
+ * ReentrantLock is instantiated either in fairness mode or unfairness mode.
+ * The default is unfairness mode. ReentrantLock has two constructor,
+ * the default constructor creates unfairness mode and constructor with true argument creates fairness mode object.
+ * Fairness mode means ReentrantLock will abide by the order of lock request and in unfairness mode it does not guarantee the order.
+ *
+ * Though the throughput of unfairness mode is better in comparison to fairness mode.
  * @important: the logic should be within one lock/unlock block
- * @author chand
  *
  */
 public class ReentrantLockDemo {
