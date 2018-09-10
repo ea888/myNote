@@ -1,4 +1,4 @@
-package interview;
+package note.multithreading;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -19,21 +19,19 @@ public class CountDownLatchTest {
         final ExecutorService exec = Executors.newFixedThreadPool(10);  
 
         
-        Runnable run = new Runnable() {
-            public void run() {  
-                try {  
-                    // 如果当前计数为零，则此方法立即返回。
-                    // 等待
-                    begin.await();  
-                    Thread.sleep((long) (Math.random() * 10000));  
-                    System.out.println("No." + Thread.currentThread().getId() + " arrived");  
-                } catch (InterruptedException e) {  
-                } finally {  
-                    // 每个选手到达终点时，end就减一
-                    end.countDown();
-                }  
-            }  
-        };  
+        Runnable run = () -> {
+            try {
+                // 如果当前计数为零，则此方法立即返回。
+                // 等待
+                begin.await();
+                Thread.sleep((long) (Math.random() * 10000));
+                System.out.println("No." + Thread.currentThread().getId() + " arrived");
+            } catch (InterruptedException e) {
+            } finally {
+                // 每个选手到达终点时，end就减一
+                end.countDown();
+            }
+        };
         
         for (int index = 0; index < 10; index++) {           
             exec.submit(run);

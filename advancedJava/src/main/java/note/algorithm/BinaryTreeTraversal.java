@@ -1,4 +1,4 @@
-package interview;
+package note.algorithm;
 
 import java.util.Queue;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package interview;
+package note.multithreading;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -19,25 +19,25 @@ public class ForkJoinTest extends RecursiveTask<Long> {
 	private static final int THREADSHOLD = 50000;
     private long[] array;
     private int low;
-    private int hight;
+    private int high;
 
     public ForkJoinTest(long[] array, int low, int hight) {
         this.array = array;
         this.low = low;
-        this.hight = hight;
+        this.high = hight;
     }
 
     @Override
     protected Long compute() {
         long sum = 0;
-        if (hight - low < THREADSHOLD) {
-            for (int i = low; i < hight; i++) {
+        if (high - low < THREADSHOLD) {
+            for (int i = low; i < high; i++) {
                 sum += array[i];
             }
         } else {
-            int middle = (low + hight) >>> 1;
+            int middle = (low + high) >>> 1;
             ForkJoinTest left = new ForkJoinTest(array, low, middle);
-            ForkJoinTest right = new ForkJoinTest(array, middle + 1, hight);
+            ForkJoinTest right = new ForkJoinTest(array, middle + 1, high);
             //recursively call
             left.fork();
             right.fork();

@@ -1,16 +1,19 @@
 package interview;
 import java.util.*;
 
-public class WishList {
+public class Intersection {
     private List<Buddy> buddies;
     private Set<String> myWishList;
 
-    public WishList(Set<String> myWishList, Map<String, Set<String>> friendsWishList) {
+    public Intersection(Set<String> myWishList, Map<String, Set<String>> friendsWishList) {
         this.buddies = new ArrayList<>();
         this.myWishList = myWishList;
         for (String name : friendsWishList.keySet()) {
             Set<String> wishList = friendsWishList.get(name);
             Set<String> intersection = new HashSet<>(wishList);
+            /**
+             * the soul of this problem is here
+             */
             intersection.retainAll(myWishList);
             int similarity = intersection.size();
             if (similarity >= wishList.size() / 2) {
@@ -75,7 +78,7 @@ public class WishList {
         friendWishLists.put("Buddy1", wishList1);
         friendWishLists.put("Buddy2", wishList2);
         friendWishLists.put("Buddy3", wishList3);
-        WishList tb = new WishList(myWishList, friendWishLists);
+        Intersection tb = new Intersection(myWishList, friendWishLists);
         List<Buddy> buddies = tb.getSortedBuddies();
         for(Buddy b: buddies){
             System.out.println(b.name +" "+ b.similarity);

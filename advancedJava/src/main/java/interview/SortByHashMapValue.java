@@ -1,7 +1,7 @@
 package interview;
 import java.util.*;
 
-public class PrefernceList {
+public class SortByHashMapValue {
     public List<Integer> find(List<List<Integer>> preferences){
 
         Map<Integer, Integer> res = new HashMap<>();
@@ -62,7 +62,7 @@ public class PrefernceList {
         preferences.add(p3);
         preferences.add(p4);
 
-        PrefernceList pl = new PrefernceList();
+        SortByHashMapValue pl = new SortByHashMapValue();
         List<Integer> list = pl.find(preferences);
         Collections.reverse(list);
         for(int i:list){

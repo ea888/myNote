@@ -1,7 +1,6 @@
 package interview;
 import java.util.*;
 
-
 public class PlaindromePairs {
     private boolean isPalindrome(String s) {
         for (int i = 0; i < s.length() / 2; ++i)

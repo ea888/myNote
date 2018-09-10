@@ -1,4 +1,4 @@
-package interview;
+package note.algorithm;
 
 public class MaxSequence {
     public int maxSeq1(int[] seq){

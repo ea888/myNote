@@ -2,6 +2,11 @@ package interview;
 
 import java.util.*;
 
+/**
+ * The idea is to put all intervals into map but eliminate smaller ranges and merge consecutive ranges at the same time:
+ * [1,5] [2,4] [9,12]------- [2,4] will be eliminated due to the smaller range than [1,5]
+ * [1,3] [2,4] [9,12]-------  [1,3] and [2,4] will be merged to [1,4]
+ */
 public class Intervals {
     private List<Integer> in = new ArrayList<>();
 

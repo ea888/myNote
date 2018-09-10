@@ -1,4 +1,4 @@
-package interview;
+package note.multithreading;
 
 import java.util.ArrayList;  
 import java.util.List;  

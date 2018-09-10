@@ -1,4 +1,4 @@
-package interview;
+package note.algorithm;
 
 public class NonConsecutiveMax {
     public int rob(int[] nums) {
