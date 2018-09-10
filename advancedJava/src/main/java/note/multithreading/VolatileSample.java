@@ -2,7 +2,7 @@ package note.multithreading;
 import java.util.Scanner;
 
 /**
- * volatile keyword tells Java to store the Object in main memory instead of cpu cache which is available throughout all threads
+ * volatile statiscAndInstance tells Java to store the Object in main memory instead of cpu cache which is available throughout all threads
  */
 class VolatileSample extends Thread {
 

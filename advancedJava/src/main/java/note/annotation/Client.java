@@ -1,4 +1,4 @@
-package com.ecvlearning.javaee.annotation;
+package note.annotation;
 
 public class Client {
     public static void main(String[] args) {

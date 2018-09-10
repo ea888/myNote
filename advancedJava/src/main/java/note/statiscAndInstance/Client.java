@@ -1,6 +1,4 @@
-package com.ecvlearning.javaee.keyword;
-
-import note.keyword.StaticSample;
+package note.statiscAndInstance;
 
 public class Client {
     public static void main(String[] args){

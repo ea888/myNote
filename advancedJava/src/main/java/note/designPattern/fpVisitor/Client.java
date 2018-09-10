@@ -1,7 +1,5 @@
 package note.designPattern.fpVisitor;
 
-import java.util.function.Consumer;
-
 public class Client {
     public static void main(String[] args) {
         Transaction et = new EquityTransaction();

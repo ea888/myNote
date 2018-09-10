@@ -1,6 +1,5 @@
 package note.lambda;
 
-import note.lambda.Trade;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;

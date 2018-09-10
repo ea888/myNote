@@ -1,5 +1,4 @@
-package com.ecvlearning.javaee.annotation;
-
+package note.annotation;
 public class Child extends Parent {
 
     @Override

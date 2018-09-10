@@ -1,6 +1,7 @@
 package note.reflection;
 
-import com.ecvlearning.javaee.annotation.MyAnnotation;
+
+import note.annotation.MyAnnotation;
 
 @MyAnnotation
 public interface ReflectionInterface {

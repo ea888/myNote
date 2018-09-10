@@ -1,4 +1,4 @@
-package note.keyword;
+package note.statiscAndInstance;
 
 public class StaticSample {
     public static String name = "static sample";

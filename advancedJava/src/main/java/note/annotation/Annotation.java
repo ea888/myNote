@@ -1,4 +1,4 @@
-package com.ecvlearning.javaee.annotation;
+package note.annotation;
 
 public interface Annotation {
     @Deprecated

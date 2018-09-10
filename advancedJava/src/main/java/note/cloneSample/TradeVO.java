@@ -1,4 +1,4 @@
-package com.ecvlearning.javaee.cloneSample;
+package note.cloneSample;
 
 import java.util.ArrayList;
 import java.util.HashSet;
