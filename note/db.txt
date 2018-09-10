@@ -1,0 +1,27 @@
+Clustered and unclusterd indexes in SQL:
+Clustered: data sorted by the clustered index saved on disk physically
+Pros: good for grouping data (needs to be unique, can add more columns to the clustered index) fast Select
+Cons: Insert,Update in the middle of the index is slow, only 1 allowed per table
+Non-clustered: a reference to the actual column with rowId
+Pros: Multiple allowed, faster Insert, Update
+Cons: Slower Select
+
+
+Sql - Partition by: 类似group by但是用在函数上(类似rownum)， 可以对数据分组
+ROW_NUMBER : Returns a unique number for each row starting with 1. For rows that have duplicate values,numbers are arbitrarily assigned.
+Rank : Assigns a unique number for each row starting with 1,except for rows that have duplicate values,
+in which case the same ranking is assigned and a gap appears in the sequence for each duplicate ranking.
+Example:
+RANK () OVER ( PARTITION BY E.Department_ID ORDER BY E.Salary DESC ) AS RANK
+
+
+ANY,ALL:
+SELECT *  FROM employee  WHERE salary > ANY (2000, 3000, 4000);
+
+
+●	Atomicity - This property guarantees that if one part of the transaction fails, the entire transaction will fail, and the database state will be left unchanged.
+●	Consistency - This property ensures that any transaction will bring the database from one valid state to another.
+●	Isolation - This property ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially.
+●	Durable - means that once a transaction has been committed, it will remain so, even in the event of power loss.
+
+

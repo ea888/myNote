@@ -1,0 +1,15 @@
+Linux Command:
+Grep -i(case insensitive) “keyword” filename
+top(running processes dynamic list)
+ps(running process list)
+Kill -pid
+export(environment variables) | grep keyword(find keyword from the export result)
+Ls -ltr(show all file info with latest update at the end)
+Chmod a+x(all+execute permission) filename  (a:all, u:owner, g:group, o:others)
+-rwxrwxr-x 1 40233 40233 21 Apr 16 00:47 main.ksh
+上面这个文件表示owner读写执行同组读写执行最后的r-x表示其他用户只能读或者执行（这个是比较常用的775权限）
+ln -s file1 link1
+A hard link then just creates another file with a link to the same underlying inode. Once a hard link has been made the link is to the inode. deleting renaming or moving the original file will not affect the hard link as it links to the underlying inode. Any changes to the data on the inode is reflected in all files that refer to that inode.
+A symbolic link is a link to another name in the file system.
+
+

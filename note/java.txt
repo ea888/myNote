@@ -1,0 +1,111 @@
+内部类:
+静态内部类: 只能访问“父类“静态成员,可以被外界用静态方式访问
+内部类: 限定符无用，可以访问一切“父类“成员
+方法内部类：只能在该方法中实例化
+匿名内部类: 只是简化代码 不需要声明一个单独的类 用法: new interface(){.....}
+
+
+递归:
+一般是有推导关系的情况下使用(如等差数列通项公式)；尾递归（return 递归函数调用）一般可以用循环取代。
+复杂的递归逻辑可以先编写一般情况的逻辑然后处理收敛处的特殊逻辑，递归收敛处的返回参数一般是每层递归会变化的一个参数（先收敛到一个结果，再逐层返回，请参考二叉树等递归实现）。
+
+
+快速排序：
+1．先从数列中取出一个数作为基准数。
+2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。
+3．再对左右区间重复第二步，直到各区间只有一个数。
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+print(quicksort([3,6,8,10,1,2,1]))
+一种帮助理解的方式：挖坑填数+分治法
+把pivot看成一个坑，一开始就挖掉。然后先试图从右往左(因为选了第一个元素作为pivot)找小于pivot的填进去，再从左往右找大于pivot的填新挖的坑。此思想可参考下面链接
+http://blog.csdn.net/morewindows/article/details/6684558
+
+
+设计模式最清晰诠释: https://www.codeproject.com/Articles/28309/Design-pattern-FAQ-Part-Training
+
+
+Why String is immutable?
+Were String not immutable, a connection or file would be changed and lead to serious security threat. Mutable strings could cause security problem in Reflection too, as the parameters are strings. Efficiency The hashcode of string is frequently used in Java. For example, in a HashMap
+
+
+Detect deadlock programmatically:
+ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+long[] threadIds = bean.findDeadlockedThreads(); // Returns null if no threads are deadlocked.
+if (threadIds != null) {
+ThreadInfo[] infos = bean.getThreadInfo(threadIds);
+ for (ThreadInfo info : infos) {
+StackTraceElement[] stack = info.getStackTrace(); // Log or store stack trace information.
+} }
+
+
+Soft（软引用） > Weak（弱引用） > Phantom（虚引用）
+一个对象只有软引用，则垃圾回收器会在内存不足的时候才回收它
+一个对象只有弱引用，则无论内存是否不足，垃圾回收器扫描到它的时候都会回收它
+一个对象只有虚引用，则生命周期等同于没有任何引用，垃圾回收器在任何时候都可能回收它，虚引用往往是用来跟踪垃圾回收器的回收活动
+
+
+Access Modifier
+Modifier    | Class | Package | Subclass | World
+public      |  Y    |    Y    |    Y     |   Y
+protected   |  Y    |    Y    |    Y     |   N
+no modifier |  Y    |    Y    |    N     |   N
+private     |  Y    |    N    |    N     |   N
+
+
+Create Immutable Class:
+1.	Declare the class as final so it can’t be extended.
+2.	Make all fields private so that direct access is not allowed.
+3.	Don’t provide setter methods for variables
+4.	Make all mutable fields final so that it’s value can be assigned only once.
+5.	Initialize all the fields via a constructor performing deep copy.
+6.	Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+
+
+TreeMap: Key sorted
+HashMap: no order (We can use incremental key as index to achieve a fast lookup and insertion data structure)
+LinkedHashMap: order of insertion(There is a separate linked list to maintain the insertion order of Entries.)
+SortedMap: Interface
+ConcurrentSkipListMap: thread-safe sorted map
+HashTable: Synchronized HashMap
+List vs Set: List can contain duplicate values, Set cannot.
+TreeSet: ordered
+HashSet: no order
+LinkedHashSet: order of insertion
+SortedSet: Interface
+ConcurrentSkipListSet: thread-safe sorted set
+
+
+notify() does not actually give up a lock on a resource. It tells a waiting thread that that thread can wake up.
+However, the lock is not actually given up until the notifier’s synchronized block has completed.
+
+
+We can tune JVM garbage collection(GC Mode, Compaction Mode) to improve performance:
+1.	One is to minimize the number of objects passed to the old area;
+2.	and the other is to decrease Full GC execution time.
+
+
+Spring Configuration:Annotation injection is performed before XML injection.
+Thus, the latter configuration will override the former for properties wired through both approaches
+
+
+SOLID： single responsibility, open-close, liskov substitution, interface separation, dependency inversion.
+
+
+
+Propagation
+Defines how transactions relate to each other. Common options
+●	Required: Code will always run in a transaction. Create a new transaction or reuse one if available.
+●	Requires_new: Code will always run in a new transaction. Suspend current transaction if one exist.
+Isolation
+Defines the data contract between transactions.
+●	Read Uncommitted: Allows dirty reads
+●	Read Committed: Does not allow dirty reads
+●	Repeatable Read: If a row is read twice in the same transaction, result will always be the same
+●	Serializable: Performs all transactions in a sequence
