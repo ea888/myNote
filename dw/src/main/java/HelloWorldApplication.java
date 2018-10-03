@@ -29,7 +29,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
     final TemplateHealthCheck healthCheck =
       new TemplateHealthCheck(configuration.getTemplate());
-    environment.healthChecks().register("template", healthCheck);
+    environment.healthChecks().register("simple check", healthCheck);
 
     environment.jersey().register(resource);
   }
